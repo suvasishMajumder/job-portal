@@ -116,7 +116,7 @@ Latest Jobs
 <Input type='text'
 placeholder='Search Job By Title...'
 name='search-query' 
-className='h-full flex-1 px-4 text-md'
+className='h-full flex-1 px-4 text-base sm:text-md placeholder:text-xs placeholder:sm:text-base'
 />
 
 <Button type='submit' className='h-full sm:w-28' variant="blue">

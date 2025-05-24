@@ -98,7 +98,7 @@ console.log(user)
 
 <div className="flex justify-between">
 
-<div className="flex gap-2">
+<div className="flex gap-0.5 sm:gap-2">
 
 <MapPinIcon />
 {job?.location}
@@ -107,7 +107,7 @@ console.log(user)
 
 
 
-<div className="applicants flex gap-2">
+<div className="applicants gap-0.5 flex sm:gap-2">
   <Briefcase />{job?.applications?.length} Applicants
 </div>
 

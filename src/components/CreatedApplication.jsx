@@ -38,7 +38,7 @@ const {user, isLoaded} = useUser();
 
   return (
     <>
-    <div className='flex bg-red-700 flex-col gap-3'>
+    <div className='flex  flex-col gap-3'>
 {applications?.map((application) => {
 
 return (

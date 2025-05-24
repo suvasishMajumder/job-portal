@@ -71,7 +71,7 @@ useEffect(()=>{
 
 
   return (
-    <Card className={'flex flex-col  bg-amber-600'}>
+    <Card className={'flex flex-col  '}>
       {loadingDeleteJob && (<GridLoader className='mt-4' width='100%' color='#36d7b7' />)}
       <CardHeader>
         <CardTitle className={'flex justify-center sm:justify-between'}>

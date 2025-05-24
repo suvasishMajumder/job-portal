@@ -102,7 +102,7 @@ Simulates a click on the anchor element, which initiates the download or
         </CardTitle>
       </CardHeader>
 
-      <CardContent className={`flex flex-col gap-4 flex-1`}>
+      <CardContent className={`flex text-xs sm:text-base flex-col gap-4 flex-1`}>
         <div className="flex flex-col space-y-5 md:space-y-0 md:flex-row justify-between">
           <div className="flex gap-2 flex-row md:flex-col lg:flex-row items-center">
             <BriefcaseBusiness size={15} />
