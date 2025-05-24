@@ -29,7 +29,7 @@ Explore thoussands of job listings or find the perfect candidate</p>
 
   </section>
 
-<div className="flex gap-6 justify-center">
+<div className="flex gap-6 flex-col sm:flex-row items-center justify-center">
 
 {/* button */}
 

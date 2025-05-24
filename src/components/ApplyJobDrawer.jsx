@@ -174,6 +174,7 @@ Users who have already applied are restricted from opening it again.
   };
 
   return (
+    <>
     <Drawer className="select-none" open={applied ? false : undefined}>
       <DrawerTrigger asChild>
         {/* The asChild prop is typically used in UI libraries (Like radix or custom component)
@@ -329,6 +330,7 @@ If invalid, errors are displayed (e.g., errors.resume.message).
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
+    </>
   );
 };
 

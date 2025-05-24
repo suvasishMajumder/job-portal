@@ -112,6 +112,7 @@ Latest Jobs
 
 <form onSubmit={(event) => handleSearch(event)} className='h-14 flex w-full gap-2 items-center mb-3'>
 
+
 <Input type='text'
 placeholder='Search Job By Title...'
 name='search-query' 

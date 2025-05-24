@@ -15,8 +15,9 @@ import { GridLoader } from "react-spinners";
 const JobCard = ({job,isMyJob = false, savedInit = false, onJobSaved = () => {}, }) => {
 
   const { user , isLoaded } = useUser();
+  console.log(user)
 
-const [saved , setSaved] = useState(savedInit)
+const [saved , setSaved] = useState(savedInit);
   
 const handleSavedJob = async() =>{
 
@@ -27,7 +28,7 @@ const handleSavedJob = async() =>{
   job_id:job.id,
   
   });
-  
+   
 onJobSaved();
 
   };
@@ -70,10 +71,10 @@ useEffect(()=>{
 
 
   return (
-    <Card className={'flex flex-col'}>
+    <Card className={'flex flex-col  bg-amber-600'}>
       {loadingDeleteJob && (<GridLoader className='mt-4' width='100%' color='#36d7b7' />)}
       <CardHeader>
-        <CardTitle>
+        <CardTitle className={'flex justify-center sm:justify-between'}>
           {job.title}
 
           {isMyJob && (
@@ -87,21 +88,23 @@ useEffect(()=>{
         </CardTitle>
       </CardHeader>
 
-      <CardContent>
-        <div className="">
+      <CardContent className={' space-y-5  sm:space-y-0'}>
+        <div className="space-y-6">
+         <div className="flex justify-center items-center sm:block">
           {job.company && (
-            <img src={job.company.logo_url} className="h-6" alt={job.company_id} />
+            <img src={job.company.logo_url} className="h-6 " alt={job.company_id} />
           )}
+          </div>
 
-          <div className="flex gap-2 justify-end items-center">
+          <div className="flex gap-2 justify-center sm:justify-end items-center">
             <MapPinIcon size={15} /> <span>{job.location}</span>
           </div>
         </div>
         <hr />
-        {job.description}
+        <span className="text-[14px] sm:text-base">{job.description}</span>
       </CardContent>
 
-<CardFooter className='flex gap-2'>
+<CardFooter className='flex justify-center flex-col sm:flex-row sm:justify-between gap-8 sm:gap-2'>
   <Link to={`/job/${job.id}`}>
   
   <Button variant='secondary' className='w-[100%]'>More Details</Button>
@@ -110,7 +113,7 @@ useEffect(()=>{
 
 
 
-{!isMyJob && <Button variant='outline' 
+{!isMyJob && <Button variant='destructive' 
 onClick={handleSavedJob} 
 disabled={loadingSavedJob}
 className='w-15'>
@@ -121,8 +124,6 @@ className='w-15'>
 
   
   </Button>}
-
-
 
 
 
@@ -184,5 +185,35 @@ So after that line:
 
 (error is also available on the return object if you ever want to destructure it.)
 
+
+*/
+
+
+
+
+
+//Doubt 2:
+
+
+
+/*
+1. Child does its own API call
+When you click “Save” or “Delete” in JobCard, that component’s useFetch(saveJob) or useFetch(deleteJob) hook runs the Supabase 
+API call to update the database.
+
+
+2. Child calls onJobSaved() afterward
+Right after the API call resolves, JobCard invokes the onJobSaved() callback—which, remember, is just fnSavedJobs() from the parent.
+
+
+3. Parent re‑fetches saved jobs
+Because fnSavedJobs() is bound to the parent’s useFetch(getSavedJobs), calling it causes the parent to fetch the latest saved_jobs
+table from Supabase.
+
+
+4. UI reflects the new data
+When the parent’s fetch completes, its data: savedJobs updates. React re‑renders the grid of JobCard components with whatever
+the current server state 
+is—so newly saved jobs show up, and newly deleted ones disappear.
 
 */
