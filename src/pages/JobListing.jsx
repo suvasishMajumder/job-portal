@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getJobs } from './api/apiJobs'
-import { useSession, useUser } from '@clerk/clerk-react'
+import {  useUser } from '@clerk/clerk-react'
 import useFetch from '@/hooks/use-fetch'
 import { BarLoader, SyncLoader , RiseLoader } from 'react-spinners'
 import JobCard from '@/JobCard'
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Select , SelectTrigger , SelectValue ,
   SelectContent,SelectGroup,SelectLabel,SelectItem } from '@/components/ui/select'
 import { City, Country, State } from 'country-state-city'
+import { colors } from '@clerk/themes/dist/clerk-js/src/ui/foundations/colors'
 
 
 
@@ -24,7 +25,7 @@ const [company_id , setCompany_id] = useState('');
 
   const {isLoaded , user} = useUser();
 
-  console.log(user)
+  // console.log(user) //For print debugging
 
 
   const handleSearch = (e) =>{
@@ -52,11 +53,11 @@ const {fn:fnJobs, data:dataJobs, loading:loadingJobs, } = useFetch(getJobs,{ loc
 inside the hook, which you’ve aliased as loadingJobs. React then re‑renders your component 
 with loadingJobs === true, so your <RiseLoader/> spinner shows until the fetch resolves (and setLoading(false) runs).  */
 
-console.log(loadingJobs);
+// console.log(loadingJobs); //for print debugging
 
 useEffect(()=>{
 
-  console.log('Fetching jobs....')
+  // console.log('Fetching jobs....') //for print debugging inside the useeffect
 
   if(isLoaded){
   fnJobs();
@@ -74,7 +75,7 @@ const {fn:fnCompanies , data:companies ,  } = useFetch(getCompanies,{ location, 
 
 useEffect(()=>{
 
-  console.log('Fetching companies....')
+  // console.log('Fetching companies....') //for print debuggging inside the useeffect
 
   if(isLoaded){
   fnCompanies();
@@ -119,7 +120,7 @@ name='search-query'
 className='h-full flex-1 px-4 text-base sm:text-md placeholder:text-xs placeholder:sm:text-base'
 />
 
-<Button type='submit' className='h-full sm:w-28' variant="blue">
+<Button type='submit' className='h-full sm:w-28 text-white' style={{backgroundColor:'#007694'}}>
 Search
 </Button>
 

@@ -3,23 +3,16 @@ import { Button } from "@/components/ui/button";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layout/AppLayout";
 import LandingPage from "./pages/LandingPage";
-// import Onboarding from "./pages/Onboarding";
 const Onboarding = lazy(()=>import("./pages/Onboarding"));
-// import JobListing from "./pages/JobListing";
 const JobListing = lazy(()=>import('./pages/JobListing'));
-// import PostJob from "./pages/PostJob";
 const PostJob = lazy(()=>import('./pages/PostJob'))
-// import SavedJob from "./pages/SavedJob";
 const SavedJob = lazy(()=>import('./pages/SavedJob'));
-// import MyJobs from "./pages/MyJobs";
 const MyJobs = lazy(()=>import("./pages/MyJobs"))
 import { ThemeProvider } from "./components/theme-provider";
-// import JobPage from "./pages/JobPage";
 const JobPage = lazy(()=>import('./pages/JobPage'));
 import "./App.css";
 import ProtectedRoute from "./components/ui/protectedRoute";
 import toast, { Toaster } from "react-hot-toast";
-// import ErrorPage from "./ErrorPage";
 const ErrorPage = lazy(()=>import("./ErrorPage"));
 
 
@@ -160,18 +153,3 @@ const App = () => {
 
 export default App;
 
-/**
- * The <ProtectedRoute> component acts as a wrapper to protect specific routes. Here's how it works:
-
-Wrapped Component: When you wrap a route's element (e.g., <Onboarding />) with <ProtectedRoute>, 
-the children prop of <ProtectedRoute> becomes the wrapped component.
-
-Authentication Check: Inside <ProtectedRoute>, it checks if the user is authenticated (isSignedIn) and the
- authentication state is loaded (isLoaded).
-
-Redirect if Not Signed In: If the user is not signed in (!isSignedIn), it redirects them to the sign-in page 
-using <Navigate to='/?sign-in=true' />.
-
-Render Protected Content: If the user is signed in, it renders the children (the wrapped component, e.g., <Onboarding />).
- * 
- */

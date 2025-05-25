@@ -40,7 +40,7 @@ setSearch({})
 
   return (
 <>
-    <nav className='py-4 flex max-w-screen overflow-x-hidden justify-around  items-center'>
+    <nav className='py-4 flex flex-col space-y-4 sm:space-y-0 sm:flex-row max-w-screen overflow-x-hidden justify-around  items-center'>
 
 <Link>
 <img src="./src/assets/logo.png" className='h-20'  alt="logo" />

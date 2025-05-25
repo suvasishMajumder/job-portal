@@ -108,7 +108,7 @@ useEffect(()=>{
   }
 
   return (
-    <div className="">
+    <div className=" py-4">
       <h1 className="gradient-title font-extrabold text-5xl sm:text-7xl text-center pb-8">
         Post a Job
       </h1>
@@ -122,14 +122,14 @@ useEffect(()=>{
           <p className="text-red-500">{errors.description.message}</p>
         )}
 
-        <div className="flex gap-5 items-center">
+        <div className="flex flex-col space-y-5 sm:space-y-0 sm:flex-row sm:gap-5 items-center ">
           <Controller
             name="location"
             control={control}
             render={({ field }) => (
               <Select value={field.value} onValueChange={field.onChange}>
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Filter By location" />
+                  <SelectValue placeholder="Select the location" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
@@ -152,7 +152,7 @@ useEffect(()=>{
             render={({ field }) => (
               <Select value={field.value} onValueChange={field.onChange}>
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Filter By company">
+                  <SelectValue placeholder="Select the Company">
                     {field.value
                       ? companies?.find((com) => com.id === Number(field.value))
                           ?.name
@@ -192,7 +192,7 @@ useEffect(()=>{
           name="requirements"
           control={control}
           render={({ field }) => (
-            <MDEditor value={field.value} onChange={field.onChange} />
+            <MDEditor value={field.value}  onChange={field.onChange} />
           )}
         />
 

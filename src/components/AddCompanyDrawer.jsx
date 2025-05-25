@@ -86,12 +86,12 @@ fetchCompanies();
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader>
+        <DrawerHeader className={'space-y-4'}>
 
 
 
 
-        <form className='flex gap-2 p-4 pb-0'>
+        <form className='flex flex-col space-y-4 sm:flex-row gap-2 p-4 pb-0'>
 <Input placeholder="Company Name" {...register("name")} />
 
 <Input type="file" accept="image/*" className="file:text-gray-500"
@@ -101,7 +101,7 @@ fetchCompanies();
 type='button'
 onClick={handleSubmit(onSubmit)}
 variant="destructive"
-className="w-40">
+className="w-40 mx-auto">
 Add
 </Button>
 
@@ -112,8 +112,8 @@ Add
 
 {loadingAddCompany && <BarLoader width={'100%'} color="#36d7b7"></BarLoader>}
 
-          <DrawerTitle>Add A New Company</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <DrawerTitle className={'text-center sm:text-left'}>Add A New Company</DrawerTitle>
+          <DrawerDescription className={'text-center sm:text-left'}>This action cannot be undone.</DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>
           <DrawerClose asChild>

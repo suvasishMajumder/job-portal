@@ -87,7 +87,7 @@ Now , Only when we do const { data, error } = await query
     return null;
   }
 
-  console.log(data);
+  // console.log(data); //for checking whether I am getting the data from the server side or not
 
   return data;
 }

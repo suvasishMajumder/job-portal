@@ -183,7 +183,8 @@ applied={job?.applications?.find((ap)=>ap.candidate_id === user.id)}
 {
 job?.applications?.length > 0 && job.recruiter_id === user?.id && (
 
-  <div className="">
+
+    <>
 
 <h2 className="text-2xl sm:text-3xl font-bold mb-8">Applications</h2>
 {job?.applications.map((application) => {
@@ -194,8 +195,8 @@ return (
 )
 
 })}
+</>
 
-  </div>
   
 )
 

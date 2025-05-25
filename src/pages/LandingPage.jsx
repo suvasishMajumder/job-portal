@@ -11,7 +11,7 @@ import { AccordionContent , AccordionItem , AccordionTrigger , Accordion } from 
 
 const LandingPage = () => {
 
-console.log(faqs);
+
 
 
   return (
@@ -19,9 +19,11 @@ console.log(faqs);
   <section className='text-center'>
 
 <h1 className="flex select-none text-gray-300 flex-col items-center text-4xl justify-center 
-gradient-title font-extrabold tracking-tighter p-4 sm:text-6xl lg:text-8xl">Find Your Dream Job{" "}<span className='flex items-center
-gap-2 sm:gap-6'>and Get{" "}
-  <img src="./src/assets/logo.png" className='sm:h-24 lg:h-32 h-16' alt="Hirred Logo" /> </span></h1>
+gradient-title font-extrabold tracking-tighter p-4 sm:text-6xl lg:text-8xl">Land the Job You{" "}<span className='flex items-center
+gap-2 sm:gap-6'> Were Meant For{" "}
+  {/* <img src="./src/assets/logoR.webp" className='sm:h-24 lg:h-32 h-16'  alt="Hirred Logo" />  */}
+  </span>
+  </h1>
   
 
 <p className="text-gray-300 sm:mt-4 text-xs sm:text-xl">
@@ -34,7 +36,7 @@ Explore thoussands of job listings or find the perfect candidate</p>
 {/* button */}
 
 <Link to='/jobs'>
-<Button variant="blue" size='xl'>Find Jobs</Button>
+<Button className={'text-white'} style={{backgroundColor:'#007694'}} size='xl'>Find Jobs</Button>
 </Link>
 
 
@@ -68,7 +70,7 @@ return ( <CarouselItem key={id} className='basis-1/3 lg:basis-1/6'>
 
 {/* banner */}
 {/* D:\WEB DEVELOPMENT PROJECT\React Big Projects\Job Portal\jp\src\assets\ai-boys.png */}
-<img src="/src/assets/ai-boys.png" alt=""  className='w-full' />
+<img src="/src/assets/ai-boysR.webp" alt="" loading='lazy' className='w-full' />
 
 <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 {/* cards  */}

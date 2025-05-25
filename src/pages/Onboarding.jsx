@@ -46,10 +46,11 @@ if(!isLoaded){
 }
 
   return (
-    <div>
+    <>
+   
     <h2 className='gradient-title text-center font-extrabold text-7xl
     sm:text-8xl tracking-tighter'>I am a...</h2>
-<div className="mt-16 grid grid-cols-2 gap-4 w-full md:px-40">
+<div className="mt-16 grid grid-cols-1 xl:grid-cols-2 gap-4 w-full md:px-40">
 
   <Button onClick={() =>handleRoleSelection('Candidate')} variant='blue' className='h-36 cursor-pointer text-2xl'>Candidate</Button>
   <Button onClick={() => handleRoleSelection('Recruiter')} variant='default' className='h-36 cursor-pointer bg-[#067700]
@@ -57,7 +58,7 @@ if(!isLoaded){
 
 </div>
 
-    </div>
+    </>
   )
 }
 

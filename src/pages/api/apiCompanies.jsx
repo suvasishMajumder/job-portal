@@ -1,10 +1,10 @@
 import supabaseClient, { supabaseUrl } from "@/utils/Superbase";
-import { useEffect, useMemo, useState } from "react";
+// import { useEffect, useMemo, useState } from "react";
 
 
 
 export async function getCompanies(token) {
-  //Instantiate a Supabase client with the user’s token
+  //Instantiated a Supabase client with the user’s token
   const supabase = await supabaseClient(token);
 
   const { data, error } = await supabase.from("companies").select("*");

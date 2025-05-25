@@ -34,17 +34,6 @@ const schema = z.object({
     message: "Education is required",
   }),
 
-  /*
-z.any() accepts any kind of input for the resume field, such as a file object, 
-and hands it off for further validation. You then chain on .refine(), supplying a 
-predicate that first ensures the uploaded file array isn’t empty and then checks 
-the MIME type of the first file entry to confirm it’s either a PDF 
-(application/pdf) or a Word document (application/msword or 
-application/vnd.openxmlformats-officedocument.wordprocessingml.document).
- If these conditions aren’t met, the custom error “Only PDF or Word documents
-  are allowed” is raised.
-*/
-
   resume: z
     .any()
     .refine(
@@ -55,52 +44,6 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document).
       { message: "Only PDF or Word documents are allowed" }
     ),
 });
-
-/*
-
-
-# experience: Minimum value is 0 || Must be an integer || Error message: "Experience must be at least 0".
-
-
-# skills: Must be a string || Cannot be empty || Error message: Skills are required
-
-
-# education: Must be one of the predefined values: Intermediate , Graduate or Post Graduate
-
-
-# resume: Can be any file || Must be a .pdf or .doc/.docx file || Error message: Only PDF or Word documents are allowed
-
-
-
-This `schema` is a validation object created using **Zod**, a library for schema validation. It defines rules for validating form inputs.
-
-### Explanation:
-1. **`experience`**:
-   - Must be a number.
-   - Minimum value is `0`.
-   - Must be an integer.
-   - Error message: `"Experience must be at least 0"`.
-
-2. **`skills`**:
-   - Must be a string.
-   - Cannot be empty.
-   - Error message: `"Skills are required"`.
-
-3. **`education`**:
-   - Must be one of the predefined values: `"Intermediate"`, `"Graduate"`, or `"Post graduate"`.
-   - Error message: `"Education is required"`.
-
-4. **`resume`**:
-   - Can be any file.
-   - Must be a `.pdf` or `.doc/.docx` file.
-   - Error message: `"Only PDF or Word documents are allowed"`.
-
-### How Zod Works:
-- **Validation**: Zod checks the input data against the rules defined in the schema.
-- **Error Handling**: If the data doesn't match the rules, Zod returns the specified error messages.
-- **Integration**: This schema is used with `react-hook-form` to validate form inputs before submission.
-
-*/
 
 const ApplyJobDrawer = ({ user, job, applied = false, fetchJob }) => {
   const {
@@ -113,43 +56,7 @@ const ApplyJobDrawer = ({ user, job, applied = false, fetchJob }) => {
     resolver: zodResolver(schema),
   });
 
-  // applied = true; //With applied to true , the button will get destructive color
-  // and will be disabled
-
-  //Doubt 1:-
-
-  //How this open = {applied ? false : undefined}
-
-  /*
-✅ Applied Check Logic for Drawer
-🔁 Logic Overview:
-If applied === true
-→ The open prop is set to false.
-→ This ensures the drawer remains closed at all times.
-
-If applied === false
-→ The open prop is set to undefined.
-→ This allows the drawer to be controlled by its internal state or the DrawerTrigger.
-
-⚙️ Behavior of open: undefined
-When open is undefined, the drawer behaves as a controlled/uncontrolled component:
-
-It uses internal logic or waits for user interaction (e.g., clicking the DrawerTrigger) to open/close.
-
-🧠 How It Works
-✅ User has applied (applied === true)
-→ Drawer cannot be opened (hard-locked by open = false).
-
-❌ User has not applied (applied === false)
-→ Drawer can be opened by the user via trigger interaction.
-
-🎯 Result
-This ensures that:
-
-Only users who have not applied can interact with the drawer.
-
-Users who have already applied are restricted from opening it again.
-*/
+  
 
   const {
     loading: loadingApply,
@@ -177,54 +84,13 @@ Users who have already applied are restricted from opening it again.
     <>
     <Drawer className="select-none" open={applied ? false : undefined}>
       <DrawerTrigger asChild>
-        {/* The asChild prop is typically used in UI libraries (Like radix or custom component)
-       to allow the component to pass its behavior to a child component */}
-
+    
         <Button
           size={"lg"}
           variant={job?.isOpen && !applied ? "blue" : "destructive"}
           disabled={!job?.isOpen || applied}
 
-          /*
-The above short circuiting:
-
-✅ disabled={!job?.isOpen || applied} — Logic Breakdown
-This expression determines whether a button should be disabled
- based on two conditions:
-
-🧠 Explanation
-1. Logical OR (||)
-The || operator returns true if either condition is true.
-
-If the first condition is true, JavaScript skips checking the second 
-(due to short-circuiting).
-
-2. Conditions Explained
-!job?.isOpen:
-
-Checks if the job is not open.
-
-If job?.isOpen is false or undefined, this becomes true.
-
-applied:
-
-Checks if the user has already applied for the job.
-
-🧾 Resulting Behavior
-The button becomes disabled (true) if:
-
-The job is not open, OR
-
-The user has already applied.
-
-The button remains enabled (false) only if:
-
-The job is open, AND
-
-The user has not applied.
-
-
-*/
+        
         >
           {/* doubt */}
           {job?.isOpen ? (applied ? "Applied" : "Apply") : "Hiring Closed"}
