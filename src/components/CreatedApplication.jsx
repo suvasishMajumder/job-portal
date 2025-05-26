@@ -43,9 +43,7 @@ const {user, isLoaded} = useUser();
 
 return (
 
-  <ApplicationCard key={application.id} application={application} isCandidate /> //When we pass prop as isCandidate , 
-  // then its same as isCandidate = {true}
-//Hence , we can use this isCandidate prop in <ApplicationCard /> component to perform conditional rendering
+  <ApplicationCard key={application.id} application={application} isCandidate />
 
 )
 

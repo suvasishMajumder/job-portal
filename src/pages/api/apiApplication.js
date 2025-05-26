@@ -120,19 +120,8 @@ export async function applyToJob(token, _, jobData) {
     throw new Error("Error uploading Resume");
   }
 
-  // Construct the public URL for the uploaded resume
+
   const resume = `${supabaseUrl}/storage/v1/object/public/resumes/${fileName}`;
-
-/*
-The resume file (jobData.resume) is uploaded to the Supabase storage bucket (resumes) using 
-the upload method.
-If the upload is successful, a public URL for the uploaded file is constructed.
-Inserting Data into the applications Table:
-
-After the resume is successfully uploaded, the jobData
- (along with the resume URL) is inserted into the applications 
-table in the database.
-*/
 
 
   console.log("Job Data:", jobData);

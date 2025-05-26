@@ -11,6 +11,8 @@ import { Select , SelectTrigger , SelectValue ,
   SelectContent,SelectGroup,SelectLabel,SelectItem } from '@/components/ui/select'
 import { City, Country, State } from 'country-state-city'
 import { colors } from '@clerk/themes/dist/clerk-js/src/ui/foundations/colors'
+import ChatBot from '@/components/ChatBot'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -21,7 +23,7 @@ const [searchQuery , setSearchQuery] = useState('');
 const [location,setLocation] = useState('');
 const [company_id , setCompany_id] = useState('');
 
-
+const navigate = useNavigate();
 
   const {isLoaded , user} = useUser();
 
@@ -108,6 +110,13 @@ if(!isLoaded){
     <h1 className='gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-8'>
 Latest Jobs
     </h1>
+
+
+{/* Chatbot */}
+
+{/* <ChatBot /> */}
+
+<Button onClick={()=>navigate('/chatbot')}>Get Career Advise From our AI Career Adviser</Button>
 
 {/* Add Filters Here */}
 

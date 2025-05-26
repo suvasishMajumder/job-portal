@@ -13,7 +13,10 @@ const JobPage = lazy(()=>import('./pages/JobPage'));
 import "./App.css";
 import ProtectedRoute from "./components/ui/protectedRoute";
 import toast, { Toaster } from "react-hot-toast";
+import ChatBot from "./components/ChatBot";
 const ErrorPage = lazy(()=>import("./ErrorPage"));
+import { BeatLoader } from "react-spinners";
+
 
 
 const ErrorBoundary = ({ children }) => {
@@ -50,10 +53,24 @@ const App = () => {
           element: (
             <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic font-bold text-center">Loading...</div>}
+                fallback={<div className="italic font-bold text-center"><BeatLoader color="#ffffff" /></div>}
               >
                 <ProtectedRoute>
                   <Onboarding />
+                </ProtectedRoute>
+              </Suspense>
+            </ErrorBoundary>
+          ),
+        },
+              {
+          path: "/chatbot",
+          element: (
+            <ErrorBoundary>
+              <Suspense
+                fallback={<div className="italic font-bold text-center"><BeatLoader color="#ffffff" /></div>}
+              >
+                <ProtectedRoute>
+                  <ChatBot />
                 </ProtectedRoute>
               </Suspense>
             </ErrorBoundary>
@@ -64,7 +81,7 @@ const App = () => {
           element: (
             <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic text-center font-bold">Loading...</div>}
+                fallback={<div className="italic text-center font-bold"><BeatLoader color="#ffffff"  /></div>}
               >
               <ProtectedRoute>
                 <JobListing />
@@ -78,7 +95,7 @@ const App = () => {
           element: (
               <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic text-center font-bold">Loading...</div>}
+                fallback={<div className="italic text-center font-bold"><BeatLoader color="#ffffff" /></div>}
               >
             <ProtectedRoute>
               <JobPage />
@@ -92,7 +109,7 @@ const App = () => {
           element: (
              <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic text-center font-bold">Loading...</div>}
+                fallback={<div className="italic text-center font-bold"><BeatLoader color="#ffffff" /></div>}
               >
             <ProtectedRoute>
               <PostJob />
@@ -106,7 +123,7 @@ const App = () => {
           element: (
             <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic text-center font-bold">Loading...</div>}
+                fallback={<div className="italic text-center font-bold"><BeatLoader color="#ffffff" /></div>}
               >
             <ProtectedRoute>
               <SavedJob />
@@ -121,7 +138,7 @@ const App = () => {
           element: (
              <ErrorBoundary>
               <Suspense
-                fallback={<div className="italic text-center font-bold">Loading...</div>}
+                fallback={<div className="italic text-center font-bold"><BeatLoader color="#ffffff"  /></div>}
               >
             <ProtectedRoute>
               <MyJobs />

@@ -14,23 +14,6 @@ const JobPage = () => {
 
 const {user , isLoaded} = useUser();
 
-/*
-The useParams hook in React Router returns an object of key-value pairs,
- where the keys are the dynamic route parameters defined in the route path, 
- and the values are the actual values from the URL.
-
-Example: { id: "123" }
-
-Another example:
-
-For a route like /profile/:username and a URL /profile/johndoe, 
-useParams() will return:
-
-{ username: "johndoe" }
-
-*/
-
-
 const {id} = useParams();
 
 
