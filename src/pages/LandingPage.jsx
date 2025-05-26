@@ -7,6 +7,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { Card , CardHeader , CardTitle , CardContent } from '@/components/ui/card';
 import faqs from '../data/faq.json'
 import { AccordionContent , AccordionItem , AccordionTrigger , Accordion } from '@/components/ui/accordion';
+import AiBoyz from '../assets/ai-boysR.webp'
 
 
 const LandingPage = () => {
@@ -70,7 +71,7 @@ return ( <CarouselItem key={id} className='basis-1/3 lg:basis-1/6'>
 
 {/* banner */}
 {/* D:\WEB DEVELOPMENT PROJECT\React Big Projects\Job Portal\jp\src\assets\ai-boys.png */}
-<img src="/src/assets/ai-boysR.webp" alt="" loading='lazy' className='w-full' />
+<img src={AiBoyz} alt="" loading='lazy' className='w-full' />
 
 <section className='grid grid-cols-1 md:grid-cols-2 gap-4'>
 {/* cards  */}
